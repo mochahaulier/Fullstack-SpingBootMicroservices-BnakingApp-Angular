@@ -1,0 +1,755 @@
+openapi: 3.0.3
+info:
+  title: Client Service API
+  description: This is the REST API for the Client Service
+  license:
+    name: Apache 2.0
+  version: v1.0
+servers:
+  - url: http://d62ed24e826b:8083
+    description: Generated server url
+paths:
+  /api/v1/clients/{id}:
+    get:
+      tags:
+        - client-controller
+      operationId: getClientById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClientResponse'
+    put:
+      tags:
+        - client-controller
+      operationId: updateClient
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags:
+        - client-controller
+      operationId: deleteClient
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+  /api/v1/clients:
+    get:
+      tags:
+        - client-controller
+      operationId: getAllClients
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClientResponse'
+    post:
+      tags:
+        - client-controller
+      operationId: createClient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientRequest'
+        required: true
+      responses:
+        '201':
+          description: Created
+  /api/v1/products/{id}:
+    get:
+      tags:
+        - product-controller
+      operationId: getProductById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+    put:
+      tags:
+        - product-controller
+      operationId: updateProductRate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductUpdateRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+  /api/v1/products:
+    get:
+      tags:
+        - product-controller
+      operationId: getAllProducts
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+    post:
+      tags:
+        - product-controller
+      operationId: createProduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCreationRequest'
+        required: true
+      responses:
+        '201':
+          description: Created
+  /api/v1/product-definitions:
+    get:
+      tags:
+        - product-definition-controller
+      operationId: getAllProductDefinitions
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductDefinitionResponse'
+    post:
+      tags:
+        - product-definition-controller
+      operationId: processProductDefinitions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductDefinitionRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductDefinitionProcessResponse'
+  /api/v1/products/by-definition/{definitionId}:
+    get:
+      tags:
+        - product-controller
+      operationId: getProductsByDefinition
+      parameters:
+        - name: definitionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+  /api/v1/client-products/loans/{clientProductId}:
+    get:
+      tags:
+        - client-product-controller
+      operationId: getLoanProductById
+      parameters:
+        - name: clientProductId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LoanProductResponse'
+    put:
+      tags:
+        - client-product-controller
+      operationId: updateProductById
+      parameters:
+        - name: clientProductId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientProductRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+  /api/v1/client-products/accounts/{clientProductId}:
+    get:
+      tags:
+        - client-product-controller
+      operationId: getAccountProductById
+      parameters:
+        - name: clientProductId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AccountProductResponse'
+    put:
+      tags:
+        - client-product-controller
+      operationId: updateAccountProductById
+      parameters:
+        - name: clientProductId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientProductRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+  /api/v1/client-products:
+    get:
+      tags:
+        - client-product-controller
+      operationId: getAllClientProducts
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClientProductResponse'
+    post:
+      tags:
+        - client-product-controller
+      operationId: createClientProduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientProductRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+  /api/v1/client-products/{clientProductId}:
+    get:
+      tags:
+        - client-product-controller
+      operationId: getClientProductById
+      parameters:
+        - name: clientProductId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClientProductResponse'
+  /api/v1/client-products/client/{clientId}:
+    get:
+      tags:
+        - client-product-controller
+      operationId: getClientProductsByClientId
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClientProductResponse'
+  /api/v1/client-products/client/{clientId}/loans:
+    get:
+      tags:
+        - client-product-controller
+      operationId: getLoanProductsByClientId
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/LoanProductResponse'
+  /api/v1/client-products/client/{clientId}/accounts:
+    get:
+      tags:
+        - client-product-controller
+      operationId: getAccountProductsByClientId
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/AccountProductResponse'
+  /api/v1/transaction/deposit:
+    post:
+      tags:
+        - transaction-controller
+      operationId: processDeposit
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DepositRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+  /api/v1/transaction/clients/{clientId}:
+    get:
+      tags:
+        - transaction-controller
+      operationId: getClientProductsByClientId1
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TransactionResponse'
+components:
+  schemas:
+    ClientRequest:
+      required:
+        - email
+        - firstName
+        - lastName
+        - phone
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+    ClientItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+    ClientResponse:
+      type: object
+      properties:
+        clients:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientItem'
+    ProductUpdateRequest:
+      required:
+        - adjustedRate
+        - productDefinitionKey
+      type: object
+      properties:
+        productDefinitionKey:
+          type: integer
+          format: int64
+        adjustedRate:
+          minimum: 0
+          exclusiveMinimum: true
+          type: number
+    ProductCreationRequest:
+      required:
+        - adjustedRate
+        - productDefinitionKey
+      type: object
+      properties:
+        productDefinitionKey:
+          maxLength: 6
+          minLength: 6
+          type: string
+        adjustedRate:
+          minimum: 0
+          exclusiveMinimum: true
+          type: number
+    DefinitionRequest:
+      required:
+        - description
+        - operation
+        - payRate
+        - productKey
+        - rate
+        - type
+      type: object
+      properties:
+        operation:
+          type: string
+          enum:
+            - 'N'
+            - U
+            - ''
+        productKey:
+          maxLength: 6
+          minLength: 6
+          type: string
+        description:
+          type: string
+        type:
+          pattern: ^(ACCOUNT|LOAN)$
+          type: string
+        rate:
+          minimum: 0
+          exclusiveMinimum: true
+          type: number
+        payRate:
+          $ref: '#/components/schemas/PayRateDto'
+    PayRateDto:
+      required:
+        - unit
+        - value
+      type: object
+      properties:
+        unit:
+          pattern: ^(DAY|MONTH)$
+          type: string
+        value:
+          type: integer
+          format: int32
+    ProductDefinitionRequest:
+      required:
+        - definitions
+      type: object
+      properties:
+        definitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/DefinitionRequest'
+    ProductDefinitionProcessResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+        successes:
+          type: array
+          items:
+            type: string
+    ProductItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        productDefinitionKey:
+          type: string
+        productType:
+          type: string
+          enum:
+            - ACCOUNT
+            - LOAN
+        rateType:
+          type: string
+          enum:
+            - FIXED
+            - PERCENTAGE
+        rate:
+          type: number
+    ProductResponse:
+      type: object
+      properties:
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductItem'
+    DefinitionResponse:
+      type: object
+      properties:
+        productKey:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+        rate:
+          type: number
+        payRate:
+          $ref: '#/components/schemas/PayRateDto'
+        createdDate:
+          type: string
+          format: date-time
+        modifiedDate:
+          type: string
+          format: date-time
+    ProductDefinitionResponse:
+      type: object
+      properties:
+        definitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/DefinitionResponse'
+    ClientProductRequest:
+      required:
+        - clientId
+        - productId
+        - startDate
+      type: object
+      properties:
+        clientId:
+          type: integer
+          format: int64
+        productId:
+          type: integer
+          format: int64
+        initialBalance:
+          type: number
+        loanAmount:
+          type: number
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        fixedInstallment:
+          type: number
+    ClientProductItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        clientId:
+          type: integer
+          format: int64
+        productId:
+          type: integer
+          format: int64
+        type:
+          type: string
+          enum:
+            - ACCOUNT
+            - LOAN
+            - UNKNOWN
+        lastChargeDate:
+          type: string
+          format: date
+    ClientProductResponse:
+      type: object
+      properties:
+        clientproducts:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClientProductItem'
+    LoanProductItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        clientId:
+          type: integer
+          format: int64
+        productId:
+          type: integer
+          format: int64
+        type:
+          type: string
+          enum:
+            - ACCOUNT
+            - LOAN
+            - UNKNOWN
+        lastChargeDate:
+          type: string
+          format: date
+        originalAmount:
+          type: number
+        fixedInstallment:
+          type: number
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+    LoanProductResponse:
+      type: object
+      properties:
+        loanproducts:
+          type: array
+          items:
+            $ref: '#/components/schemas/LoanProductItem'
+    AccountProductItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        clientId:
+          type: integer
+          format: int64
+        productId:
+          type: integer
+          format: int64
+        type:
+          type: string
+          enum:
+            - ACCOUNT
+            - LOAN
+            - UNKNOWN
+        lastChargeDate:
+          type: string
+          format: date
+        accountBalance:
+          type: number
+        startDate:
+          type: string
+          format: date
+    AccountProductResponse:
+      type: object
+      properties:
+        accountproducts:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountProductItem'
+    DepositRequest:
+      type: object
+      properties:
+        accountId:
+          type: integer
+          format: int64
+        amount:
+          type: number
+    TransactionItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        clientProductId:
+          type: integer
+          format: int64
+        clientId:
+          type: integer
+          format: int64
+        transactionType:
+          type: string
+          enum:
+            - FEE_DEDUCTION
+            - LOAN_ADDITION
+            - ACCOUNT_DEPOSIT
+        amount:
+          type: number
+        transactionDate:
+          type: string
+          format: date-time
+    TransactionResponse:
+      type: object
+      properties:
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionItem'

@@ -1,0 +1,17 @@
+{
+  "inputs": [
+    {
+      "inputFile": "./api-docs/client.api-docs.json"
+    },
+    {
+      "inputFile": "./api-docs/product.api-docs.json"
+    },
+    {
+      "inputFile": "./api-docs/clientproduct.api-docs.json"
+    },
+    {
+      "inputFile": "./api-docs/transaction.api-docs.json"
+    }
+  ],
+  "output": "./bankingapp.api-docs.json"
+}

@@ -262,6 +262,8 @@ public class ClientProductService {
                     return new ClientProductNotFoundException(clientProductId);
                 });
 
+                
+
         log.info("Fetching clientProduct with id {}", clientProductId);
         return new LoanProductResponse(List.of(loanproduct));
     }
