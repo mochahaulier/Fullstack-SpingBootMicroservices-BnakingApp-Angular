@@ -1,0 +1,20 @@
+meta {
+  name: Create Client-product
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:8180/api/v1/client-products
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "clientId":1,
+    "productId":1,
+    "initialBalance": 1212121,
+    "startDate":"2024-09-09"
+  }
+}

@@ -1,0 +1,112 @@
+<div class="container">
+  <mat-card class="client-card">
+    <mat-card-header>
+      <mat-card-title>CREATE CLIENT</mat-card-title>
+    </mat-card-header>    
+    <mat-card-content>
+      <form [formGroup]="addClientForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="full-width">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName" placeholder="Enter first name">
+          <mat-error *ngIf="firstName?.hasError('required')">
+            First name is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName" placeholder="Enter last name">
+          <mat-error *ngIf="lastName?.hasError('required') && (lastName?.dirty || lastName?.touched)">
+            Last name is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="Enter email" type="email">
+          <mat-error>
+            @if (email?.hasError('email') && (email?.dirty || email?.touched)) {
+              Please enter a valid email address
+            }
+          </mat-error>
+          <mat-error *ngIf="addClientForm.get('email')?.hasError('required')">
+            Email is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Phone</mat-label>
+          <input matInput formControlName="phone" placeholder="Enter phone number" type="tel">
+          <mat-error *ngIf="phone?.hasError('required')">
+            Phone number is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-card-actions class="text-center">
+          <button mat-flat-button type="submit" color="primary" [disabled]="addClientForm.invalid">
+            Submit
+          </button>
+          <button mat-raised-button (click)="goToHomePage()">Cancel</button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+<!-- <div class="wrapper"> 
+  <h4 *ngIf="clientCreated" class="text-green-500">Client Created Successfully</h4>
+
+  <form [formGroup]="addClientForm" (ngSubmit)="onSubmit()">
+    @if (clientCreated) {
+      <h4 class="text-green-500">Product Created Successfully</h4>
+    }
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" type="text" required>
+      <mat-error *ngIf="firstName?.hasError('required')">
+        First Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" type="text" required>
+      <mat-error *ngIf="lastName?.hasError('required')">
+        Last Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" required>
+      <mat-error *ngIf="email?.hasError('required')">
+        Email is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Phone</mat-label>
+      <input matInput formControlName="phone" type="text" required>
+      <mat-error *ngIf="phone?.hasError('required')">
+        Phone is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-card>
+      <mat-card-title>CLIENT DETAILS</mat-card-title>
+      <mat-card-content>
+        <p>First Name: <strong>{{ addClientForm.get('firstName')?.value }}</strong></p>
+        <p>Last Name: <strong>{{ addClientForm.get('lastName')?.value }}</strong></p>
+        <p>Email: <strong>{{ addClientForm.get('email')?.value }}</strong></p>
+        <p>Phone: <strong>{{ addClientForm.get('phone')?.value }}</strong></p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button type="submit" color="primary" [disabled]="addClientForm.invalid">Submit</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </form>
+</div> -->
+

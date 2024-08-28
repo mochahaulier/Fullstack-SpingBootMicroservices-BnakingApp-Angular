@@ -1,0 +1,82 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/java
+{
+	"name": "Java",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	// "image": "mcr.microsoft.com/devcontainers/java:1-21-bullseye",
+	"dockerComposeFile": "docker-compose.yml",
+	// "dockerComposeFile": "docker-compose-standalone.yml",
+	"service": "devcontainer",
+	"workspaceFolder": "/workspace",
+	
+	"mounts": [
+		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",		
+		"source=${localEnv:HOME}/.kube,target=/home/vscode/.kube,type=bind",
+		"source=${localEnv:HOME}/.minikube,target=/home/vscode/.minikube,type=bind"
+	],
+	
+	"features": {
+		"ghcr.io/devcontainers/features/java:1.6.0": {},
+		"ghcr.io/devcontainers-contrib/features/maven-sdkman:2": {},
+		"ghcr.io/devcontainers-contrib/features/springboot-sdkman:2": {},
+		"ghcr.io/devcontainers-contrib/features/visualvm-sdkman:2": {},
+		"docker-in-docker": "latest",
+		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/node:1": {
+        	"version": "latest"
+		}	
+	},
+	
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"vmware.vscode-boot-dev-pack",
+				"Postman.postman-for-vscode",
+				"vscjava.vscode-java-debug",
+				"dbaeumer.vscode-eslint",
+				"vscjava.vscode-java-pack",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"VisualStudioExptTeam.intellicode-api-usage-examples",
+				"redhat.java",
+				"vscjava.vscode-maven",
+				"vscjava.vscode-java-dependency",
+				"vscjava.vscode-java-test",
+				"ms-azuretools.vscode-docker",
+				"ms-kubernetes-tools.vscode-kubernetes-tools",
+				"redhat.fabric8-analytics",
+				"eamodio.gitlens",
+				"redhat.vscode-yaml",
+				"ms-vscode.vscode-typescript-tslint-plugin",
+				"angular.ng-template",
+				"esbenp.prettier-vscode",
+				"dbaeumer.vscode-eslint"
+			],
+			"settings": {
+				"editor.formatOnSave": true,
+				"editor.defaultFormatter": "esbenp.prettier-vscode",
+				"prettier.resolveGlobalModules": true
+			}
+		}
+	},
+
+	"runServices": ["devcontainer", "keycloak", "kafka-1", "kafka-2", "kafka-3",
+                    "prometheus", "grafana", "loki", "tempo",
+				    "kafka-ui", "schema-registry" ],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [8080, 8181, 9411, 29092, 2181, 9092, 8761, 4200 ],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "bash .devcontainer/setup.sh",
+
+	//"postStartCommand": "npm install -g @angular/cli",
+	//"postAttachCommand": "git config --global diff.tool ..."
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "vscode"
+}

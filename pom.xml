@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.3.2</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+    <groupId>dev.mochahaulier</groupId>
+    <artifactId>microservices-bankingapp</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>client-service</module>
+        <module>product-service</module>
+        <module>clientproduct-service</module>
+        <module>transaction-service</module>
+		<module>discovery-server</module> 
+		<module>api-gateway</module> 
+	</modules>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+		<spring-cloud.version>2023.0.3</spring-cloud.version>		
+    </properties>
+
+	<dependencyManagement>
+		<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-dependencies</artifactId>
+			<version>${spring-cloud.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+    <build>
+		
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<name>mochahaulier/${project.artifactId}</name>
+						<publish>true</publish>
+					</image>					
+					<docker>
+						<publishRegistry>
+							<username>mochahaulier</username>
+							<password>${dockerPassword}</password>
+						</publishRegistry>
+					</docker>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+                <groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.4.3</version>
+                <configuration>	
+					<extraDirectories>
+						<paths>
+							<path>
+								<from>${project.basedir}/src/main/resources</from>
+								<into>/app/resources</into>
+							</path>
+						</paths>
+					</extraDirectories>		
+        			<from>
+                        <image>eclipse-temurin:21-jre</image>
+                    </from>
+                    <to>
+                        <image>registry.hub.docker.com/mochahaulier/${project.artifactId}</image>
+                    </to>
+					<container>
+						<environment>
+							<SPRING_PROFILES_ACTIVE>docker</SPRING_PROFILES_ACTIVE>                        
+						</environment>
+					</container>
+                </configuration>                
+            </plugin>
+		</plugins>
+	</build>
+
+</project>

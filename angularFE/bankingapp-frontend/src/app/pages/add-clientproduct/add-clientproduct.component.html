@@ -1,0 +1,115 @@
+<div class="container">
+  <form [formGroup]="addClientProductForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Select Client</mat-label>
+      <mat-select formControlName="client" required>
+        @if (clients.length > 0) {
+          @for (client of clients; track client.id) {
+              <mat-option [value]="client">{{client.firstName}} {{client.lastName}}</mat-option>
+          }
+        } 
+      </mat-select>
+      <mat-error *ngIf="addClientProductForm.get('client')?.hasError('required')">
+        Please select a client
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Select Product</mat-label>
+      <mat-select formControlName="product" required>
+        @if (products.length > 0) {
+          @for (product of products; track product.id) {
+              <mat-option [value]="product">{{product.productDefinitionKey}}: {{product.productType}}</mat-option>
+         }
+        }          
+      </mat-select>
+      <mat-error *ngIf="addClientProductForm.get('product')?.hasError('required')">
+        Please select a product
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Start Date</mat-label>
+      <input matInput formControlName="startDate" type="date">
+      <mat-error *ngIf="addClientProductForm.get('startDate')?.hasError('required')">
+        Start Date is required
+      </mat-error>
+    </mat-form-field> 
+
+    <div *ngIf="selectedProduct?.productType === 'ACCOUNT'">
+      <mat-form-field>
+        <mat-label>Initial Balance</mat-label>
+        <input matInput formControlName="initialBalance" type="number">
+        <mat-error *ngIf="addClientProductForm.get('initialBalance')?.hasError('required')">
+          Initial Balance is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="selectedProduct?.productType === 'LOAN'">
+      <mat-form-field>
+        <mat-label>Loan Amount</mat-label>
+        <input matInput formControlName="loanAmount" type="number">
+        <mat-error *ngIf="addClientProductForm.get('loanAmount')?.hasError('required')">
+          Loan Amount is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Fixed Installment</mat-label>
+        <input matInput formControlName="fixedInstallment" type="number">
+        <mat-error *ngIf="addClientProductForm.get('fixedInstallment')?.hasError('required')">
+          Fixed Installment is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>End Date</mat-label>
+        <input matInput formControlName="endDate" type="date">
+        <mat-error *ngIf="addClientProductForm.get('endDate')?.hasError('required')">
+          End Date is required
+        </mat-error>
+      </mat-form-field>
+    </div>      
+  
+  <div class="card-container">
+    <mat-card class="client-card">
+      <mat-card-header>
+        <mat-card-title>CLIENT DETAILS</mat-card-title>
+      </mat-card-header> 
+      <mat-card-content>
+        <p><strong>First Name:</strong> {{selectedClient?.firstName}}</p>
+        <p><strong>Last Name:</strong> {{selectedClient?.lastName}}</p>
+        <p><strong>Email:</strong> {{selectedClient?.email}}</p>
+        <p><strong>Phone:</strong> {{selectedClient?.phone}}</p>
+      </mat-card-content>
+      <mat-card-actions class="text-center">
+        <button mat-flat-button type="submit" color="primary" [disabled]="addClientProductForm.invalid">Submit</button>
+        <button mat-raised-button type="BUTTON" (click)="goToHomePage()">Cancel</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="product-card">
+      <mat-card-header>
+        <mat-card-title>PRODUCT DETAILS</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Product Key:</strong> {{selectedProduct?.productDefinitionKey}}</p>
+        <p><strong>Product Type:</strong> {{selectedProduct?.productType}}</p>
+        <p><strong>Rate Type:</strong> {{selectedProduct?.rateType}}</p>
+        <p><strong>Rate:</strong> {{selectedProduct?.rate}}%</p>
+
+        <ng-container *ngIf="selectedProduct?.productType === 'account'">
+          <p><strong>Initial Balance:</strong> {{addClientProductForm.get('initialBalance')?.value}}</p>
+        </ng-container>
+        <ng-container *ngIf="selectedProduct?.productType === 'loan'">
+          <p><strong>Loan Amount:</strong> {{addClientProductForm.get('loanAmount')?.value}}</p>
+          <p><strong>Fixed Installment:</strong> {{addClientProductForm.get('fixedInstallment')?.value}}</p>
+          <p><strong>End Date:</strong> {{addClientProductForm.get('endDate')?.value}}</p>
+        </ng-container>
+        <p><strong>Start Date:</strong> {{addClientProductForm.get('startDate')?.value}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</form>
+</div>

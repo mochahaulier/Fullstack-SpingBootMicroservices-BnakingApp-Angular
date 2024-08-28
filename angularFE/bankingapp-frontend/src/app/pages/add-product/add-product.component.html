@@ -1,0 +1,65 @@
+<div class="container">
+    <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <mat-label>Product Definition</mat-label>
+          <mat-select formControlName="definition" required>
+            @if (definitions.length > 0) {
+                @for (definition of definitions; track definition.productKey) {
+                    <mat-option [value]="definition">{{definition.productKey}}: {{definition.type}}</mat-option>
+                }
+            } 
+          </mat-select>
+          <mat-error *ngIf="definition?.hasError('required')">
+            Please choose a product definition
+          </mat-error>
+        </mat-form-field>
+              
+        <mat-form-field>
+          <mat-label>Rate</mat-label>
+          <input matInput formControlName="rate" type="number">
+          <mat-error *ngIf="rate?.hasError('required')">
+            Rate is required
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field>
+          <mat-label>Pay Rate Unit</mat-label>
+          <mat-select formControlName="unit" required>
+            @if (payRateUnits.length > 0) {
+                @for (unit of payRateUnits; track unit) {
+                    <mat-option [value]="unit">{{unit}}</mat-option>
+                }
+            } 
+            </mat-select>
+          <mat-error *ngIf="unit?.hasError('required')">
+            Pay Rate Unit is required
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field>
+          <mat-label>Pay Rate Value</mat-label>
+          <input matInput formControlName="value" type="number">
+          <mat-error *ngIf="value?.hasError('required')">
+            Pay Rate Value is required
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>PRODUCT DETAILS</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>Type:<strong> {{ definition?.value?.type }}</strong></p>
+              <p>Definition Key:<strong> {{ definition?.value?.productKey }}</strong></p>
+              <p>Description:<strong> {{ definition?.value?.description }}</strong></p>
+              <p>Rate:<strong> {{ rate?.value }}</strong> ({{ definition?.value?.rate }})</p>
+              <p>PayRate Unit:<strong> {{ unit?.value }}</strong></p>
+              <p>PayRate Value:<strong> {{ value?.value }}</strong></p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-flat-button type="submit" color="primary" [disabled]="addProductForm.invalid">Submit</button>              
+              <button mat-raised-button (click)="goToHomePage()">Cancel</button>
+            </mat-card-actions>
+          </mat-card>
+      </form>    
+  </div>

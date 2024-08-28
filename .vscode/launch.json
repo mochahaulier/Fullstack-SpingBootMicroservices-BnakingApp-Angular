@@ -1,0 +1,64 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DiscoveryServerApplication<discovery-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "dev.mochahaulier.discoveryserver.DiscoveryServerApplication",
+            "projectName": "discovery-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ApiGatewayApplication<api-gateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "dev.mochahaulier.apigateway.ApiGatewayApplication",
+            "projectName": "api-gateway",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ClientServiceApplication<client-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "dev.mochahaulier.clientservice.ClientServiceApplication",
+            "projectName": "client-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ClientProductServiceApplication<clientproduct-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "dev.mochahaulier.clientproductservice.ClientProductServiceApplication",
+            "projectName": "clientproduct-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ProductServiceApplication<product-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "dev.mochahaulier.productservice.ProductServiceApplication",
+            "projectName": "product-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-TransactionServiceApplication<transaction-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "dev.mochahaulier.transactionservice.TransactionServiceApplication",
+            "projectName": "transaction-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

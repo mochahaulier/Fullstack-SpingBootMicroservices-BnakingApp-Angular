@@ -1,0 +1,352 @@
+{
+  "name": "Microservices-BankingApp",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "CPget",
+      "seq": 11,
+      "request": {
+        "url": "",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Create Client-product",
+      "seq": 5,
+      "request": {
+        "url": "http://localhost:8180/api/v1/client-products",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"clientId\":1,\n  \"productId\":1,\n  \"initialBalance\": 1212121,\n  \"startDate\":\"2024-09-09\"\n}",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Get account",
+      "seq": 6,
+      "request": {
+        "url": "",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Get all client-products",
+      "seq": 4,
+      "request": {
+        "url": "http://localhost:8180/api/v1/client-products",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Get all clients",
+      "seq": 1,
+      "request": {
+        "url": "http://localhost:8180/api/v1/clients",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Get all definitions",
+      "seq": 13,
+      "request": {
+        "url": "",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Get all prodcuts",
+      "seq": 2,
+      "request": {
+        "url": "http://localhost:8180/api/v1/products",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Get all product-definitions",
+      "seq": 3,
+      "request": {
+        "url": "",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Get loan",
+      "seq": 7,
+      "request": {
+        "url": "",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "K8S TEST",
+      "seq": 9,
+      "request": {
+        "url": "",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Post definitions",
+      "seq": 12,
+      "request": {
+        "url": "",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Transaction deposit",
+      "seq": 10,
+      "request": {
+        "url": "",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Get client transactions",
+      "seq": 14,
+      "request": {
+        "url": "",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Get client products",
+      "seq": 15,
+      "request": {
+        "url": "http://localhost:8180/api/v1/transaction/clients/2",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "bearer",
+          "bearer": {
+            "token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIxVnh1TnhEeGYxXzVQRk9IMHE2bWJPTFJsNUQ3WTIwMk9qanJnZk9kVE1FIn0.eyJleHAiOjE3MjQ2MDc1MDYsImlhdCI6MTcyNDYwNzIwNiwiYXV0aF90aW1lIjoxNzI0NTUzNTgzLCJqdGkiOiI3OWEzMTNkZS03N2I1LTQ1OWQtOWY0MC0wZjNhMTg4MTdlMDQiLCJpc3MiOiJodHRwOi8va2V5Y2xvYWs6ODA4MC9yZWFsbXMvYmFua2luZ2FwcC1zZWN1cml0eS1yZWFsbSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI0NGU5ZDQwZi05NDE5LTQ0NzItYWVkMC0zYzJhNzI4ZWFhYjAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhbmd1bGFyLWNsaWVudCIsInNpZCI6ImY5ODY5ZjI1LTQzYzktNDVhYy1hZDlhLWU2OGVmODdjMWJhMSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLWJhbmtpbmdhcHAtc2VjdXJpdHktcmVhbG0iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIG9mZmxpbmVfYWNjZXNzIGVtYWlsIHByb2ZpbGUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJNb2NoYSBIYXVsaWVyIiwicHJlZmVycmVkX3VzZXJuYW1lIjoibW9jaGFoYXVsaWVyIiwiZ2l2ZW5fbmFtZSI6Ik1vY2hhIiwiZmFtaWx5X25hbWUiOiJIYXVsaWVyIiwiZW1haWwiOiJlbWFpbEBlbWFpbC5jb20ifQ.sYj3EQymFZsyd2_nyIoj50I2NQIlFXg0dulK-NtIQHKH8t0vL1nLv9EulCGs-0sPjRONfOi6RmowiPEJ64tudcjYq9CSaR3tvY1r5J7n4-e8SxxkssaAnosQTzu_M6Tl1fQoPjVg30BD2UVqMg5hm1mvT2DPW-2rxNcC2uGfuU7rmXZGVspwMIthl7hOVKdGZCpCsiAh4POMPj-LMGVspPJXmQF6U2lyqEiG1Y5w6SF9kcThBCovPXlHFb-E-d-LobCyUdX1NeTPBl2A6kKPW6WmYM9OXtGgPQfJKFsdI8fZ5LOmufRs71DqayJDyetdSOTrsK89ad1QtdFATtBGpg"
+          }
+        }
+      }
+    }
+  ],
+  "environments": [],
+  "root": {
+    "request": {
+      "auth": {
+        "mode": "bearer",
+        "bearer": {
+          "token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJDaFo2NmFSMVkzVXpUaWhfbHhuNGVFOWRIZnU1SWdKYTRadnhxRDlNMWhFIn0.eyJleHAiOjE3MjM1MDMxNjEsImlhdCI6MTcyMzUwMjg2MSwianRpIjoiZGUxMTFmOTctZjlhNC00YTViLWE2NjctMDQ4N2ViN2EyYTNiIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9iYW5raW5nYXBwLXNlY3VyaXR5LXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImZkZjE5Y2ZiLWE1ZjYtNGFkMi05OGM5LWYzOGVlMmUyNDcxMyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImJhbmtpbmdhcHAtY2xpZW50IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtYmFua2luZ2FwcC1zZWN1cml0eS1yZWFsbSJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiY2xpZW50SG9zdCI6IjE3Mi4xOS4wLjEiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtYmFua2luZ2FwcC1jbGllbnQiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE5LjAuMSIsImNsaWVudF9pZCI6ImJhbmtpbmdhcHAtY2xpZW50In0.w_WJ6I9d_FCMsl2pxyUh9RN0JNkXOEnq-L-o6piTGhp0irI94a_-S5D_Q8LPsD5bN4MJ2jBU4RC6kf5ETNSDKrSOi_IFmPcg1qQJDqZI7vYP3prLkRV5E1XCSg3bXlJ9FSP8gealN3kvK0hT3iyf7-yIor2BpKd2RVNTowlbwRfTegFUewBYFhNyenkEurTZiVw-fQ_l6fDGscgAn4iJbSb3UpsbC1XugSu3cRimh19N4aKTUScUUMfkdEcYcs_U55S0vgijqf9dT0qlYp_j8z3k57u5v9YmUd0hw848Udc1f6u8-Uj7hG0y2RmIcaXpRuAfLmRnH2j19W4cg0NYHA"
+        }
+      }
+    }
+  },
+  "brunoConfig": {
+    "version": "1",
+    "name": "Microservices-BankingApp",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ]
+  }
+}

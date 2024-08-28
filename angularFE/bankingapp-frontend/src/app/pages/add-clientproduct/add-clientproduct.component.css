@@ -1,0 +1,33 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100dvh;    
+    background-color: #f5f5f5;
+}
+
+.client-card, 
+.product-card {
+  flex: 1;
+  max-width: 48%;
+  box-sizing: border-box;
+}
+
+.card-container {
+    width:  100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 6px; 
+  }
+
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+  }
+  .client-card,
+  .product-card {
+    max-width: 100%; /* Full width on small screens */
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "record",
+  "name": "ClientProductCreatedEvent",
+  "namespace": "dev.mochahaulier.clientproductservice.event",
+  "fields": [
+    {
+      "name": "clientProductId",
+      "type": "long"
+    },
+    {
+      "name": "initialBalance",
+      "type": {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 20,
+        "scale": 2
+      }
+    }
+  ]
+}

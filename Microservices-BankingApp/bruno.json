@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Microservices-BankingApp",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

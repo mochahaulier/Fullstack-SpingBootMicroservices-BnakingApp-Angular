@@ -1,0 +1,47 @@
+<mat-toolbar>  
+  <a href="/">
+    <span>MICROSERVICE BANKING APP</span>
+  </a>  
+  <span class="example-spacer"></span>  
+  @if (isAuthenticated) {
+    <mat-chip-set aria-label="Fish selection">
+      <mat-chip>
+        <img
+          matChipAvatar
+          src="https://material.angular.io/assets/img/examples/shiba1.jpg"
+          alt="Photo of a Shiba Inu"
+        />
+        Hi, {{ username }}!
+      </mat-chip>      
+    </mat-chip-set>    
+  } 
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [disabled]="!isAuthenticated" (click)="goToCreateClientPage()">
+      <mat-icon>person_add</mat-icon>
+      <span>Create client</span>
+    </button>
+    <button mat-menu-item [disabled]="!isAuthenticated" (click)="goToCreateProductPage()">
+      <mat-icon>post_add</mat-icon>
+      <span>Create product</span>
+    </button>
+    <button mat-menu-item [disabled]="!isAuthenticated" (click)="goToCreateClientProductPage()">
+      <mat-icon>dataset_linked</mat-icon>
+      <span>Add product</span>
+    </button>
+    <mat-divider></mat-divider>
+    @if (isAuthenticated) {
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    } @else {
+      <button mat-menu-item (click)="login()">
+        <mat-icon>login</mat-icon>
+        <span>Login</span>
+      </button>
+    }    
+  </mat-menu>
+</mat-toolbar>

@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100dvh;   
+  background-color: #f5f5f5;
+}
+
+/* .example-table-container {
+    position: relative;
+    min-height: 200px;
+    max-height: 400px;
+    overflow: auto;
+} */
+
+.table-container {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  
+  .mat-elevation-z8 {
+    overflow: auto;
+  }
+
+  .card-container {
+    margin: 20px auto;
+    width: 80%;
+    height: 80%;
+    padding: 20px;
+  }
+  
+  .card-header {    
+    padding-bottom: 10px;    
+  }
+  
+  .card-content {    
+    padding-top: 10px;    
+  }
+
+  .tab-group {
+    margin-top: 20px;
+  }
+  
+  .table-container {
+    margin-top: 10px;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  mat-paginator {
+    margin-top: 20px;
+  }
+
+  .client-selection {
+    height: 5rem
+  }
+
+.client-selection, 
+.client-info {
+  flex: 1;
+  max-width: 48%;
+  box-sizing: border-box;
+}
+
+.client-container {
+    width:  100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 6px; 
+  }
